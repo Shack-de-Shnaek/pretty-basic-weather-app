@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
+const weatherRoutes_1 = require("./routes/weatherRoutes");
+const PORT = process.env.PORT || 5500;
+const apikey = '823883907500772f2ab8a26b8bee8c50';
+const app = express();
+app.use(express.json());
+app.use('/api/weather', weatherRoutes_1.default);
+app.use(express.static('./public'));
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
